@@ -40,21 +40,33 @@ code {
     width: 300px;
 }
 
+.score-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: 2px solid turquoise;
+    border-radius: 10px;
+    padding: 16px;
+    height: 100%;
+}
+
 .score {
     font-size: 40px;
     font-weight: 700;
-    padding: 45px 20px;
     color: turquoise;
-    outline: 2px solid turquoise;
-    border-radius: 10px;
-    text-align: center;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    text-align: center;
 }
 
 .score.max {
     color: indianred;
+}
+
+.score.error {
+    font-size: 18px;
+    white-space: pre-wrap;
 }
 
 .btn-wrapper {
