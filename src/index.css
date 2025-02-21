@@ -33,8 +33,9 @@ code {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border: 3px solid turquoise;
-    padding: 15px;
+    outline: 3px solid turquoise;
+    gap: 18px;
+    padding: 16px;
     border-radius: 10px;
     width: 300px;
 }
@@ -44,7 +45,7 @@ code {
     font-weight: 700;
     padding: 40px 20px;
     color: turquoise;
-    border: 3px solid turquoise;
+    outline: 2px solid turquoise;
     border-radius: 10px;
     text-align: center;
     overflow: hidden;
@@ -61,7 +62,7 @@ code {
     justify-content: center;
     gap: 30px;
     padding: 10px;
-    border: 3px solid turquoise;
+    outline: 2px solid turquoise;
     border-radius: 10px;
 }
 
@@ -99,9 +100,9 @@ code {
 .counter-settings {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    border: 3px solid turquoise;
-    padding: 15px;
+    gap: 18px;
+    outline: 3px solid turquoise;
+    padding: 16px;
     border-radius: 10px;
 }
 
@@ -109,19 +110,21 @@ code {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    gap: 40px;
-    border: 3px solid turquoise;
+    gap: 32px;
+    outline: 2px solid turquoise;
     border-radius: 10px;
     padding: 10px;
 }
 
 .input {
     text-align: center;
-    border: 3px solid turquoise;
+    border: none;
+    outline: 4px solid turquoise;
     border-radius: 5px;
     padding: 10px;
     color: #292c35;
     font-weight: 700;
     font-size: 18px;
     max-width: 150px;
+    max-height: 40px;
 }
