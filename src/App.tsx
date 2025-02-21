@@ -10,6 +10,7 @@ function App() {
     }
 
     const [values, setValues] = useState(initialValues);
+    // const [error, setError] = useState(false);
 
     const setValuesHandler = (newStartValue: number, newMaxValue: number) => {
         setValues( {startValue: newStartValue, maxValue: newMaxValue } );
