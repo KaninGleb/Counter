@@ -40,7 +40,7 @@ export const Counter = ( {startValue, maxValue}: CounterType ) => {
 
             <div className={'btn-wrapper'}>
                 <Button
-                    className={num >= maxValue || startValue > maxValue ? 'button disabled' : 'button'}
+                    className={num >= maxValue || startValue > maxValue || startValue < 0 || maxValue < 0 ? 'button disabled' : 'button'}
                     title={'inc'}
                     disabled={num >= maxValue || startValue > maxValue || startValue < 0 || maxValue < 0}
                     onClick={incrementHandler}
@@ -48,7 +48,6 @@ export const Counter = ( {startValue, maxValue}: CounterType ) => {
                 <Button
                     className={'button'}
                     title={'reset'}
-                    disabled={num >= maxValue || startValue > maxValue || startValue < 0 || maxValue < 0}
                     onClick={resetHandler}
                 />
             </div>
