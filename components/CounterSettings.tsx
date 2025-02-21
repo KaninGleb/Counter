@@ -21,7 +21,7 @@ export const CounterSettings = ({startValue, maxValue, onSetValues} : CounterSet
                 <label className={'title'}>
                     Max value:
                     <input
-                        className="input"
+                        className={localMaxValue < 0 || localStartVal >= localMaxValue ? 'input error' : 'input'}
                         type="number"
                         value={localMaxValue}
                         onChange={(e) => setLocalMaxValue(+e.currentTarget.value)}
@@ -31,7 +31,7 @@ export const CounterSettings = ({startValue, maxValue, onSetValues} : CounterSet
                 <label className={'title'}>
                     Start value:
                     <input
-                        className="input"
+                        className={localStartVal < 0 ? 'input error' : 'input'}
                         type="number"
                         value={localStartVal}
                         onChange={(e) => setLocalStartValue(+e.currentTarget.value)}

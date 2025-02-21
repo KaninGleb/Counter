@@ -128,3 +128,7 @@ code {
     max-width: 150px;
     max-height: 40px;
 }
+
+.input.error {
+    outline: 4px solid red;
+}
