@@ -30,16 +30,19 @@ export const Counter = ( {startValue, maxValue}: CounterType ) => {
 
     return (
         <div className={'counter'}>
-            {errorMessage ? (
-                <span className={'score error'}>{errorMessage}</span>
-            ) : (
-                <span className={num >= maxValue ? 'score max' : 'score'}>{num}</span>
-            )}
+            <div className={'score-wrapper'}>
+                {errorMessage ? (
+                    <span className={'score error'}>{errorMessage}</span>
+                ) : (
+                    <span className={num >= maxValue ? 'score max' : 'score'}>{num}</span>
+                )}
+            </div>
+
             <div className={'btn-wrapper'}>
                 <Button
-                    className={num >= maxValue ? 'button disabled' : 'button'}
+                    className={num >= maxValue || startValue > maxValue ? 'button disabled' : 'button'}
                     title={'inc'}
-                    disabled={num >= maxValue}
+                    disabled={num >= maxValue || startValue > maxValue}
                     onClick={incrementHandler}
                 />
                 <Button
