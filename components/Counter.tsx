@@ -42,12 +42,13 @@ export const Counter = ( {startValue, maxValue}: CounterType ) => {
                 <Button
                     className={num >= maxValue || startValue > maxValue ? 'button disabled' : 'button'}
                     title={'inc'}
-                    disabled={num >= maxValue || startValue > maxValue}
+                    disabled={num >= maxValue || startValue > maxValue || startValue < 0 || maxValue < 0}
                     onClick={incrementHandler}
                 />
                 <Button
                     className={'button'}
                     title={'reset'}
+                    disabled={num >= maxValue || startValue > maxValue || startValue < 0 || maxValue < 0}
                     onClick={resetHandler}
                 />
             </div>
