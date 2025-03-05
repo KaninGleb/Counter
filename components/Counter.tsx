@@ -47,14 +47,15 @@ export const Counter = ( {startValue, maxValue, isEditing}: CounterType ) => {
 
             <div className={'btn-wrapper'}>
                 <Button
-                    className={num >= maxValue || startValue > maxValue || startValue < 0 || maxValue < 0 ? 'button disabled' : 'button'}
                     title={'inc'}
-                    disabled={num >= maxValue || startValue > maxValue || startValue < 0 || maxValue < 0}
+                    className={num >= maxValue || startValue > maxValue || startValue < 0 || maxValue < 0 || isEditing ? 'button disabled' : 'button'}
+                    disabled={num >= maxValue || startValue > maxValue || startValue < 0 ||  maxValue < 0 || isEditing}
                     onClick={incrementHandler}
                 />
                 <Button
-                    className={'button'}
                     title={'reset'}
+                    className={num >= maxValue || startValue > maxValue || startValue < 0 || maxValue < 0 || isEditing ? 'button disabled' : 'button'}
+                    disabled={num >= maxValue || startValue > maxValue || startValue < 0 ||  maxValue < 0 || isEditing}
                     onClick={resetHandler}
                 />
             </div>
