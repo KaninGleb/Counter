@@ -18,7 +18,8 @@ export const Counter = ( {startValue, maxValue, isEditing, error}: CounterType )
     const incrementHandler = () => setNum(prev => prev + 1);
     const resetHandler = () => setNum(startValue);
 
-    const isDisabled = error !== null || isEditing || num >= maxValue;
+    const isIncDisabled = error !== null || isEditing || num >= maxValue;
+    const isResetDisabled = error !== null || isEditing;
 
     return (
         <div className={'counter'}>
@@ -27,7 +28,7 @@ export const Counter = ( {startValue, maxValue, isEditing, error}: CounterType )
                     <span className={'score error'}>{error}</span>
                 ) : (
                     <span className={isEditing ? 'score editing' : (num >= maxValue ? 'score max' : 'score')}>
-                        {isEditing ? 'Enter values and press «Set»' : num}
+                        {isEditing ? num : num}
                     </span>
                 )}
             </div>
@@ -35,14 +36,14 @@ export const Counter = ( {startValue, maxValue, isEditing, error}: CounterType )
             <div className={'btn-wrapper'}>
                 <Button
                     title={'inc'}
-                    className={`button ${isDisabled ? 'disabled' : ''}`}
-                    disabled={isDisabled}
+                    className={`button ${isIncDisabled ? 'disabled' : ''}`}
+                    disabled={isIncDisabled}
                     onClick={incrementHandler}
                 />
                 <Button
                     title={'reset'}
-                    className={`button ${isDisabled ? 'disabled' : ''}`}
-                    disabled={isDisabled}
+                    className={`button ${isResetDisabled ? 'disabled' : ''}`}
+                    disabled={isResetDisabled}
                     onClick={resetHandler}
                 />
             </div>
