@@ -66,6 +66,8 @@ code {
 
 .score.error {
     font-size: 18px;
+    font-weight: 700;
+    color: indianred;
     white-space: pre-wrap;
 }
 
@@ -143,4 +145,5 @@ code {
 
 .input.error {
     outline: 4px solid red;
+    background-color: indianred;
 }
