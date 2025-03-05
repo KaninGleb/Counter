@@ -6,15 +6,26 @@ type CounterSettingsType = {
     maxValue: number
     onSetValues: (startValue: number, maxValue: number) => void
     onEdit: (isEditing: boolean) => void
+    onError: (error: string | null) => void
 }
 
-export const CounterSettings = ({startValue, maxValue, onSetValues, onEdit} : CounterSettingsType) => {
+export const CounterSettings = ({startValue, maxValue, onSetValues, onEdit, onError} : CounterSettingsType) => {
     const [localStartVal, setLocalStartValue] = useState(startValue);
     const [localMaxValue, setLocalMaxValue] = useState(maxValue);
 
     useEffect( () => {
         onEdit(true);
     }, [localStartVal, localMaxValue, onEdit]);
+
+    useEffect(() => {
+        if (localStartVal < 0 || localMaxValue < 0) {
+            onError('Values must be non-negative');
+        } else if (localStartVal >= localMaxValue) {
+            onError('Start value must be less than the maximum value');
+        } else {
+            onError(null);
+        }
+    }, [localStartVal, localMaxValue, onError]);
 
     const setValuesHandler = () => {
         onSetValues(localStartVal, localMaxValue);

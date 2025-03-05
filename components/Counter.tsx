@@ -5,9 +5,10 @@ type CounterType = {
     startValue: number
     maxValue: number
     isEditing: boolean
+    error: string | null
 }
 
-export const Counter = ( {startValue, maxValue, isEditing}: CounterType ) => {
+export const Counter = ( {startValue, maxValue, isEditing, error}: CounterType ) => {
     const [num, setNum] = useState(startValue);
 
     useEffect( () => {
@@ -28,20 +29,22 @@ export const Counter = ( {startValue, maxValue, isEditing}: CounterType ) => {
     //
     // const errorMessage = getErrorHandler();
 
-    const isError = startValue >= maxValue || startValue < 0 || maxValue < 0;
-    const errorMessage = isError
-        ? startValue < 0 || maxValue < 0
-            ? 'Values must be non-negative'
-            : 'Start value must be less than the maximum value'
-        : '';
+    const isDisabled = error !== null || isEditing || num >= maxValue;
 
-    const isDisabled = isError || isEditing || num >= maxValue;
+    // const isError = startValue >= maxValue || startValue < 0 || maxValue < 0;
+    // const errorMessage = isError
+    //     ? startValue < 0 || maxValue < 0
+    //         ? 'Values must be non-negative'
+    //         : 'Start value must be less than the maximum value'
+    //     : '';
+    //
+    // const isDisabled = isError || isEditing || num >= maxValue;
 
     return (
         <div className={'counter'}>
             <div className={'score-wrapper'}>
-                {errorMessage ? (
-                    <span className={'score error'}>{errorMessage}</span>
+                {error ? (
+                    <span className={'score error'}>{error}</span>
                 ) : (
                     <span className={isEditing ? 'score editing' : (num >= maxValue ? 'score max' : 'score')}>
                         {isEditing ? 'Enter values and press «Set»' : num}
