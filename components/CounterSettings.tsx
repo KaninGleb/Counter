@@ -14,7 +14,7 @@ export const CounterSettings = ({startValue, maxValue, onSetValues, onEdit} : Co
 
     useEffect( () => {
         onEdit(true);
-    }, [localStartVal, localMaxValue]);
+    }, [localStartVal, localMaxValue, onEdit]);
 
     const setValuesHandler = () => {
         onSetValues(localStartVal, localMaxValue);
