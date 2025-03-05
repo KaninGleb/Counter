@@ -1,13 +1,18 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import {Button} from './Button.tsx';
 
 type CounterType = {
     startValue: number
     maxValue: number
+    isEditing: boolean
 }
 
-export const Counter = ( {startValue, maxValue}: CounterType ) => {
+export const Counter = ( {startValue, maxValue, isEditing}: CounterType ) => {
     const [num, setNum] = useState(startValue);
+
+    useEffect( () => {
+        setNum(startValue);
+    }, [startValue, maxValue]);
 
     const incrementHandler = () => {
         setNum(num + 1);
@@ -34,7 +39,9 @@ export const Counter = ( {startValue, maxValue}: CounterType ) => {
                 {errorMessage ? (
                     <span className={'score error'}>{errorMessage}</span>
                 ) : (
-                    <span className={num >= maxValue ? 'score max' : 'score'}>{num}</span>
+                    <span className={isEditing ? 'score editing' : (num >= maxValue ? 'score max' : 'score')}>
+                        {isEditing ? 'Enter values and press «Set»' : num}
+                    </span>
                 )}
             </div>
 
