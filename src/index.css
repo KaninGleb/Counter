@@ -64,6 +64,11 @@ code {
     color: indianred;
 }
 
+.score.editing {
+    font-size: 18px;
+    white-space: pre-wrap;
+}
+
 .score.error {
     font-size: 18px;
     font-weight: 700;
