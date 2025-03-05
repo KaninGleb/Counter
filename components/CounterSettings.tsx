@@ -1,18 +1,24 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import {Button} from './Button.tsx';
 
 type CounterSettingsType = {
     startValue: number
     maxValue: number
     onSetValues: (startValue: number, maxValue: number) => void
+    onEdit: (isEditing: boolean) => void
 }
 
-export const CounterSettings = ({startValue, maxValue, onSetValues} : CounterSettingsType) => {
+export const CounterSettings = ({startValue, maxValue, onSetValues, onEdit} : CounterSettingsType) => {
     const [localStartVal, setLocalStartValue] = useState(startValue);
     const [localMaxValue, setLocalMaxValue] = useState(maxValue);
 
+    useEffect( () => {
+        onEdit(true);
+    }, [localStartVal, localMaxValue]);
+
     const setValuesHandler = () => {
         onSetValues(localStartVal, localMaxValue);
+        onEdit(false);
     }
 
     return (
