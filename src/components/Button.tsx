@@ -1,14 +1,20 @@
 type ButtonType = {
-    className: string
+    className?: string
     title: string
     disabled?: boolean
     onClick: () => void
+    type?: 'primary' | 'version' | 'version-active';
 }
 
-export const Button = ({className, title, disabled, onClick}: ButtonType) => {
+export const Button = ({className, title, disabled, onClick, type}: ButtonType) => {
+    const btnClass =
+        type === 'version-active' ? 'version-button active' :
+        type === 'version' ? 'version-button' :
+        'button';
+
     return (
         <button
-            className={className}
+            className={`${btnClass} ${className}`}
             disabled={disabled}
             onClick={onClick}
         >{title}</button>
