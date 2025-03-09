@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import {Counter} from './components/Counter.tsx';
 import {CounterSettings} from './components/CounterSettings.tsx';
-import {Button} from './components/Button.tsx';
+import {VersionSwitcher} from './components/VersionSwitcher.tsx';
 
 
 function App() {
@@ -63,18 +63,7 @@ function App() {
                 />
             )}
 
-            <div className="version">
-                <Button
-                    title={'V1'}
-                    type={version === 'v1' ? 'version-active' : 'version'}
-                    onClick={() => handleVersionChange('v1')}
-                />
-                <Button
-                    title={'V2'}
-                    type={version === 'v2' ? 'version-active' : 'version'}
-                    onClick={() => handleVersionChange('v2')}
-                />
-            </div>
+            <VersionSwitcher currentVersion={version} onVersionChange={handleVersionChange}/>
         </div>
     )
 }
