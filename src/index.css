@@ -27,6 +27,40 @@ code {
 .App {
     display: flex;
     gap: 40px;
+    position: relative;
+}
+
+.version {
+    position: absolute;
+    top: -70px;
+    left: 50%;
+    display: flex;
+    gap: 12px;
+    transform: translateX(-50%);
+}
+
+.version-button {
+    border: none;
+    border-radius: 5px;
+    background-color: turquoise;
+    padding: 5px 20px;
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: 700;
+    color: #292c35;
+    transition: 0.2s;
+}
+
+.version-button.active {
+    background-color: #292c35;
+    border: 4px solid turquoise;
+    padding: 5px 16px;
+    color: turquoise;
+}
+
+.version-button:not(.active):hover {
+    background-color: #00ffe9;
+    scale: 1.05;
 }
 
 .counter {
