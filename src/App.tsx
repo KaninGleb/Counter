@@ -9,12 +9,19 @@ function App() {
         maxValue: 3,
     }
 
-    const [values, setValues] = useState(initialValues);
+    const localStorageValues = () => {
+        const savedValues = localStorage.getItem('counterSettingsValues');
+        return savedValues ? JSON.parse(savedValues) : initialValues;
+    }
+
+    const [values, setValues] = useState(localStorageValues);
     const [isEditing, setIsEditing] = useState(false);
     const [error, setError] = useState<string | null>(null);
 
     const setValuesHandler = (newStartValue: number, newMaxValue: number) => {
-        setValues( {startValue: newStartValue, maxValue: newMaxValue } );
+        const newValues = {startValue: newStartValue, maxValue: newMaxValue }
+        setValues(newValues);
+        localStorage.setItem('counterSettingsValues', JSON.stringify(newValues));
     }
 
     return (
