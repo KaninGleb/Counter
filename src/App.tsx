@@ -1,6 +1,6 @@
 import {useState} from 'react';
-import {Counter} from '../components/Counter.tsx';
-import {CounterSettings} from '../components/CounterSettings.tsx';
+import {Counter} from './components/Counter.tsx';
+import {CounterSettings} from './components/CounterSettings.tsx';
 
 
 function App() {
