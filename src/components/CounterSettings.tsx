@@ -33,7 +33,7 @@ export const CounterSettings = ({startValue, maxValue, onSetValues, onEdit, onEr
     }
 
     return (
-        <div className={'counter-settings'}>
+        <div className={'block-wrapper'}>
             <div className={'inputs-wrapper'}>
                 <label className={'title'}>
                     Max value:

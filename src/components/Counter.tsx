@@ -22,7 +22,7 @@ export const Counter = ( {startValue, maxValue, isEditing, error}: CounterType )
     const isResetDisabled = error !== null || isEditing;
 
     return (
-        <div className={'counter'}>
+        <div className={'block-wrapper'}>
             <div className={'score-wrapper'}>
                 {error ? (
                     <span className={'score error'}>{error}</span>

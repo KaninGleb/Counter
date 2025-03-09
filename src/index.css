@@ -25,53 +25,23 @@ code {
 }
 
 .App {
-    display: flex;
-    gap: 40px;
     position: relative;
 }
 
-.version {
-    position: absolute;
-    top: -70px;
-    left: 50%;
+.container {
     display: flex;
-    gap: 12px;
-    transform: translateX(-50%);
+    gap: 40px;
 }
 
-.version-button {
-    border: none;
-    border-radius: 5px;
-    background-color: turquoise;
-    padding: 5px 20px;
-    cursor: pointer;
-    font-size: 24px;
-    font-weight: 700;
-    color: #292c35;
-    transition: 0.2s;
-}
-
-.version-button.active {
-    background-color: #292c35;
-    border: 4px solid turquoise;
-    padding: 5px 16px;
-    color: turquoise;
-}
-
-.version-button:not(.active):hover {
-    background-color: #00ffe9;
-    scale: 1.05;
-}
-
-.counter {
+.block-wrapper {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     outline: 3px solid turquoise;
     gap: 18px;
     padding: 16px;
     border-radius: 10px;
-    width: 300px;
+    width: 340px;
+    height: 250px;
 }
 
 .score-wrapper {
@@ -99,12 +69,12 @@ code {
 }
 
 .score.editing {
-    font-size: 18px;
+    font-size: 20px;
     white-space: pre-wrap;
 }
 
 .score.error {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 700;
     color: indianred;
     white-space: pre-wrap;
@@ -148,15 +118,7 @@ code {
     justify-content: space-between;
     align-items: center;
     gap: 20px;
-}
-
-.counter-settings {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-    outline: 3px solid turquoise;
-    padding: 16px;
-    border-radius: 10px;
+    white-space: nowrap;
 }
 
 .inputs-wrapper {
@@ -185,4 +147,37 @@ code {
 .input.error {
     outline: 4px solid red;
     background-color: indianred;
+}
+
+.version {
+    position: absolute;
+    bottom: -40%;
+    left: 50%;
+    display: flex;
+    gap: 12px;
+    transform: translateX(-50%);
+}
+
+.version-button {
+    border: none;
+    border-radius: 5px;
+    background-color: turquoise;
+    padding: 5px 20px;
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: 700;
+    color: #292c35;
+    transition: 0.2s;
+}
+
+.version-button.active {
+    background-color: #292c35;
+    border: 4px solid turquoise;
+    padding: 5px 16px;
+    color: turquoise;
+}
+
+.version-button:not(.active):hover {
+    background-color: #00ffe9;
+    scale: 1.05;
 }
