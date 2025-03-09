@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import {Counter} from './components/Counter.tsx';
 import {CounterSettings} from './components/CounterSettings.tsx';
+import {Button} from './components/Button.tsx';
 
 
 function App() {
@@ -14,9 +15,15 @@ function App() {
         return savedValues ? JSON.parse(savedValues) : initialValues;
     }
 
+    const localStorageVersion = () => {
+        const savedValues = localStorage.getItem('counterVersion');
+        return savedValues ? savedValues : 'v1';
+    }
+
     const [values, setValues] = useState(localStorageValues);
     const [isEditing, setIsEditing] = useState(false);
     const [error, setError] = useState<string | null>(null);
+    const [version, setVersion] = useState(localStorageVersion);
 
     const setValuesHandler = (newStartValue: number, newMaxValue: number) => {
         const newValues = {startValue: newStartValue, maxValue: newMaxValue }
@@ -24,21 +31,50 @@ function App() {
         localStorage.setItem('counterSettingsValues', JSON.stringify(newValues));
     }
 
+    const handleVersionChange = (newVersion: string) => {
+        setVersion(newVersion);
+        localStorage.setItem('counterVersion', newVersion);
+    }
+
     return (
         <div className="App">
-            <CounterSettings
-                startValue={values.startValue}
-                maxValue={values.maxValue}
-                onSetValues={setValuesHandler}
-                onEdit={setIsEditing}
-                onError={setError}
-            />
-            <Counter
-                startValue={values.startValue}
-                maxValue={values.maxValue}
-                isEditing={isEditing}
-                error={error}
-            />
+            {version === 'v1' ? (
+                <div className={"container"}>
+                    <CounterSettings
+                        startValue={values.startValue}
+                        maxValue={values.maxValue}
+                        onSetValues={setValuesHandler}
+                        onEdit={setIsEditing}
+                        onError={setError}
+                    />
+                    <Counter
+                        startValue={values.startValue}
+                        maxValue={values.maxValue}
+                        isEditing={isEditing}
+                        error={error}
+                    />
+                </div>
+            ) : (
+                <Counter
+                    startValue={values.startValue}
+                    maxValue={values.maxValue}
+                    isEditing={isEditing}
+                    error={error}
+                />
+            )}
+
+            <div className="version">
+                <Button
+                    title={'V1'}
+                    type={version === 'v1' ? 'version-active' : 'version'}
+                    onClick={() => handleVersionChange('v1')}
+                />
+                <Button
+                    title={'V2'}
+                    type={version === 'v2' ? 'version-active' : 'version'}
+                    onClick={() => handleVersionChange('v2')}
+                />
+            </div>
         </div>
     )
 }
