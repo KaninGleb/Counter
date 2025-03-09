@@ -59,7 +59,7 @@ export const CounterSettings = ({startValue, maxValue, onSetValues, onEdit, onEr
             <div className={'btn-wrapper'}>
                 <Button
                     className={'button'}
-                    title={'set'}
+                    title={'Set'}
                     onClick={setValuesHandler}/>
             </div>
         </div>

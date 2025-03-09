@@ -35,13 +35,13 @@ export const Counter = ( {startValue, maxValue, isEditing, error}: CounterType )
 
             <div className={'btn-wrapper'}>
                 <Button
-                    title={'inc'}
+                    title={'Inc'}
                     className={`button ${isIncDisabled ? 'disabled' : ''}`}
                     disabled={isIncDisabled}
                     onClick={incrementHandler}
                 />
                 <Button
-                    title={'reset'}
+                    title={'Reset'}
                     className={`button ${isResetDisabled ? 'disabled' : ''}`}
                     disabled={isResetDisabled}
                     onClick={resetHandler}
