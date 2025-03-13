@@ -7,8 +7,8 @@ type CounterSettingsType = {
     maxValue: number
     onSetValues: (startValue: number, maxValue: number) => void
     onEdit: (isEditing: boolean) => void
-    onError: (error: string | null) => void
-    error: string | null
+    onError: (error: string) => void
+    error: string
 }
 
 export const CounterSettings = ({startValue, maxValue, onSetValues, onEdit, onError, error} : CounterSettingsType) => {
@@ -27,7 +27,7 @@ export const CounterSettings = ({startValue, maxValue, onSetValues, onEdit, onEr
         } else if (localStartVal >= localMaxValue) {
             onError('Start value must be less than the maximum value');
         } else {
-            onError(null);
+            onError('');
             setIsDisabled(false);
         }
     }, [localStartVal, localMaxValue, onError]);
@@ -74,7 +74,7 @@ export const CounterSettings = ({startValue, maxValue, onSetValues, onEdit, onEr
                     className={error || isDisabled ? 'disabled' : ''}
                 >
                     {isButtonClicked ? (
-                        <img className={'check-icon'} src={checkIcon} alt="Checked" width="24" height="24" />
+                        <img className={'check-icon'} src={checkIcon} alt="Checked" width="24" height="24"/>
                     ) : (
                         'Set'
                     )}

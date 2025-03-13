@@ -22,7 +22,7 @@ function App() {
 
     const [values, setValues] = useState(localStorageValues);
     const [isEditing, setIsEditing] = useState(false);
-    const [error, setError] = useState<string | null>(null);
+    const [error, setError] = useState<string>('');
     const [version, setVersion] = useState(localStorageVersion);
 
     const setValuesHandler = (newStartValue: number, newMaxValue: number) => {

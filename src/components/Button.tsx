@@ -11,9 +11,9 @@ type ButtonType = {
 
 export const Button = ({className, title, disabled, onClick, type, children}: ButtonType) => {
     const btnClass =
-        type === 'version-active' ? 'version-button active' :
-        type === 'version' ? 'version-button' :
-        'button';
+        type === 'version-active'
+            ? 'version-button active' : type === 'version'
+                ? 'version-button' : 'button';
 
     return (
         <button

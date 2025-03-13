@@ -5,7 +5,7 @@ type CounterType = {
     startValue: number
     maxValue: number
     isEditing: boolean
-    error: string | null
+    error: string
 }
 
 export const Counter = ( {startValue, maxValue, isEditing, error}: CounterType ) => {
@@ -18,8 +18,8 @@ export const Counter = ( {startValue, maxValue, isEditing, error}: CounterType )
     const incrementHandler = () => setNum(prev => prev + 1);
     const resetHandler = () => setNum(startValue);
 
-    const isIncDisabled = error !== null || isEditing || num >= maxValue;
-    const isResetDisabled = error !== null || isEditing;
+    const isIncDisabled = !!error || isEditing || num >= maxValue;
+    const isResetDisabled = !!error || isEditing;
 
     return (
         <div className={'block-wrapper'}>
