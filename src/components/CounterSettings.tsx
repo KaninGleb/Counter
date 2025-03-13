@@ -7,11 +7,13 @@ type CounterSettingsType = {
     onSetValues: (startValue: number, maxValue: number) => void
     onEdit: (isEditing: boolean) => void
     onError: (error: string | null) => void
+    error: string | null
 }
 
-export const CounterSettings = ({startValue, maxValue, onSetValues, onEdit, onError} : CounterSettingsType) => {
+export const CounterSettings = ({startValue, maxValue, onSetValues, onEdit, onError, error} : CounterSettingsType) => {
     const [localStartVal, setLocalStartValue] = useState(startValue);
     const [localMaxValue, setLocalMaxValue] = useState(maxValue);
+    const [isDisabled, setIsDisabled] = useState(false);
 
     useEffect( () => {
         onEdit(true);
@@ -24,12 +26,14 @@ export const CounterSettings = ({startValue, maxValue, onSetValues, onEdit, onEr
             onError('Start value must be less than the maximum value');
         } else {
             onError(null);
+            setIsDisabled(false);
         }
     }, [localStartVal, localMaxValue, onError]);
 
     const setValuesHandler = () => {
         onSetValues(localStartVal, localMaxValue);
         onEdit(false);
+        setIsDisabled(true);
     }
 
     return (
@@ -59,7 +63,10 @@ export const CounterSettings = ({startValue, maxValue, onSetValues, onEdit, onEr
             <div className={'btn-wrapper'}>
                 <Button
                     title={'Set'}
-                    onClick={setValuesHandler}/>
+                    onClick={setValuesHandler}
+                    disabled={!!error || isDisabled}
+                    className={error || isDisabled ? 'disabled' : ''}
+                />
             </div>
         </div>
     )

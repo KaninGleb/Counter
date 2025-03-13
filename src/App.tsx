@@ -46,6 +46,7 @@ function App() {
                         onSetValues={setValuesHandler}
                         onEdit={setIsEditing}
                         onError={setError}
+                        error={error}
                     />
                     <Counter
                         startValue={values.startValue}
