@@ -1,12 +1,15 @@
+import React from 'react';
+
 type ButtonType = {
+    title?: string | null
+    children?: React.ReactNode;
+    type?: 'primary' | 'version' | 'version-active';
     className?: string
-    title: string
     disabled?: boolean
     onClick: () => void
-    type?: 'primary' | 'version' | 'version-active';
 }
 
-export const Button = ({className, title, disabled, onClick, type}: ButtonType) => {
+export const Button = ({className, title, disabled, onClick, type, children}: ButtonType) => {
     const btnClass =
         type === 'version-active' ? 'version-button active' :
         type === 'version' ? 'version-button' :
@@ -17,6 +20,6 @@ export const Button = ({className, title, disabled, onClick, type}: ButtonType) 
             className={`${btnClass} ${className}`}
             disabled={disabled}
             onClick={onClick}
-        >{title}</button>
+        >{title || children}</button>
     )
 }
