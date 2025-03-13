@@ -150,7 +150,7 @@ code {
     background-color: indianred;
 }
 
-.version {
+.version-wrapper {
     position: absolute;
     bottom: -40%;
     left: 50%;
@@ -159,28 +159,17 @@ code {
     transform: translateX(-50%);
 }
 
-.version-button {
-    border: none;
-    border-radius: 5px;
-    background-color: turquoise;
-    padding: 5px 20px;
-    cursor: pointer;
-    font-size: 24px;
-    font-weight: 700;
-    color: #292c35;
-    transition: 0.2s;
-}
-
-.version-button.active {
+.active {
     background-color: #292c35;
     border: 4px solid turquoise;
     padding: 5px 16px;
     color: turquoise;
 }
 
-.version-button:not(.active):hover {
-    background-color: #00ffe9;
-    scale: 1.05;
+.button.active:hover {
+    background-color: inherit;
+    cursor: default;
+    scale: 1;
 }
 
 .check-icon {

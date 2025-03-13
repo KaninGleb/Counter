@@ -7,15 +7,15 @@ type VersionSwitcherType = {
 
 export const VersionSwitcher = ({currentVersion, onVersionChange}: VersionSwitcherType) => {
     return (
-        <div className="version">
+        <div className="version-wrapper">
             <Button
                 title={'V1'}
-                type={currentVersion === 'v1' ? 'version-active' : 'version'}
+                type={currentVersion === 'v1' ? 'version-active' : 'primary'}
                 onClick={() => onVersionChange('v1')}
             />
             <Button
                 title={'V2'}
-                type={currentVersion === 'v2' ? 'version-active' : 'version'}
+                type={currentVersion === 'v2' ? 'version-active' : 'primary'}
                 onClick={() => onVersionChange('v2')}
             />
         </div>

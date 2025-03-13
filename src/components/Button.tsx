@@ -3,17 +3,14 @@ import React from 'react';
 type ButtonType = {
     title?: string | null
     children?: React.ReactNode;
-    type?: 'primary' | 'version' | 'version-active';
+    type?: 'primary' | 'version-active';
     className?: string
     disabled?: boolean
     onClick: () => void
 }
 
 export const Button = ({className, title, disabled, onClick, type, children}: ButtonType) => {
-    const btnClass =
-        type === 'version-active'
-            ? 'version-button active' : type === 'version'
-                ? 'version-button' : 'button';
+    const btnClass = type === 'version-active' ? 'button active' : 'button';
 
     return (
         <button
