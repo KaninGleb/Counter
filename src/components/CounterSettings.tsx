@@ -1,5 +1,6 @@
 import {useEffect, useState} from 'react';
 import {Button} from './Button.tsx';
+import checkIcon from '../assets/images/check.svg'
 
 type CounterSettingsType = {
     startValue: number
@@ -14,6 +15,7 @@ export const CounterSettings = ({startValue, maxValue, onSetValues, onEdit, onEr
     const [localStartVal, setLocalStartValue] = useState(startValue);
     const [localMaxValue, setLocalMaxValue] = useState(maxValue);
     const [isDisabled, setIsDisabled] = useState(false);
+    const [isButtonClicked, setIsButtonClicked] = useState(false);
 
     useEffect( () => {
         onEdit(true);
@@ -34,6 +36,11 @@ export const CounterSettings = ({startValue, maxValue, onSetValues, onEdit, onEr
         onSetValues(localStartVal, localMaxValue);
         onEdit(false);
         setIsDisabled(true);
+        setIsButtonClicked(true);
+
+        setTimeout(() => {
+            setIsButtonClicked(false);
+        }, 1000)
     }
 
     return (
@@ -62,11 +69,16 @@ export const CounterSettings = ({startValue, maxValue, onSetValues, onEdit, onEr
 
             <div className={'btn-wrapper'}>
                 <Button
-                    title={'Set'}
                     onClick={setValuesHandler}
                     disabled={!!error || isDisabled}
                     className={error || isDisabled ? 'disabled' : ''}
-                />
+                >
+                    {isButtonClicked ? (
+                        <img className={'check-icon'} src={checkIcon} alt="Checked" width="24" height="24" />
+                    ) : (
+                        'Set'
+                    )}
+                </Button>
             </div>
         </div>
     )

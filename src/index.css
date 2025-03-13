@@ -99,6 +99,7 @@ code {
     font-weight: 700;
     color: #292c35;
     transition: 0.2s;
+    min-width: 80px;
 }
 
 .button:hover {
@@ -180,4 +181,8 @@ code {
 .version-button:not(.active):hover {
     background-color: #00ffe9;
     scale: 1.05;
+}
+
+.check-icon {
+    vertical-align: text-bottom;
 }
