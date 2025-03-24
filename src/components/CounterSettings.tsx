@@ -6,7 +6,7 @@ type CounterSettingsType = {
     startValue: number
     maxValue: number
     onSetValues: (startValue: number, maxValue: number) => void
-    onEdit: (isEditing: boolean) => void
+    onEdit?: (isEditing: boolean) => void
     onError: (error: string) => void
     error: string
 }
@@ -18,7 +18,7 @@ export const CounterSettings = ({startValue, maxValue, onSetValues, onEdit, onEr
     const [isButtonClicked, setIsButtonClicked] = useState(false);
 
     useEffect( () => {
-        onEdit(true);
+        if (onEdit) onEdit(true);
     }, [localStartVal, localMaxValue, onEdit]);
 
     useEffect(() => {
@@ -34,7 +34,7 @@ export const CounterSettings = ({startValue, maxValue, onSetValues, onEdit, onEr
 
     const setValuesHandler = () => {
         onSetValues(localStartVal, localMaxValue);
-        onEdit(false);
+        if (onEdit) onEdit(false);
         setIsDisabled(true);
         setIsButtonClicked(true);
 

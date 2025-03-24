@@ -1,8 +1,9 @@
 import {Button} from './Button.tsx';
+import {Version} from '../App.tsx';
 
 type VersionSwitcherType = {
-    currentVersion: string
-    onVersionChange: (version: string) => void
+    currentVersion: Version
+    onVersionChange: (version: Version) => void
 }
 
 export const VersionSwitcher = ({currentVersion, onVersionChange}: VersionSwitcherType) => {

@@ -5,40 +5,31 @@ import {counterReducer} from '../store/counterReducer.tsx';
 type CounterType = {
     startValue: number
     maxValue: number
-    isEditing: boolean
     error: string
     setIsSettingsOpen: (isSettingOpen: boolean) => void
 }
 
-export const CounterV2 = ( {startValue, maxValue, isEditing, error, setIsSettingsOpen}: CounterType ) => {
-    // const [num3, setNum3] = useState(startValue);
+export const CounterV2 = ( {startValue, maxValue, error, setIsSettingsOpen}: CounterType ) => {
     const [num, dispatchNum] = useReducer(counterReducer, startValue);
-
-    // useEffect( () => {
-    //     setNum3(startValue);
-    // }, [startValue, maxValue]);
 
     const incrementHandler = () => dispatchNum({ type: 'INCREMENT' });
     const resetHandler = () => dispatchNum( {type: 'RESET'} );
+
     const setHandler = () => {
         if (setIsSettingsOpen) {
             setIsSettingsOpen(true);
         }
     }
 
-    const isIncDisabled = !!error || isEditing || num >= maxValue;
-    const isResetDisabled = !!error || isEditing;
+    const isIncDisabled = !!error  || num >= maxValue;
+    const isResetDisabled = !!error;
 
     return (
         <div className={'block-wrapper'}>
             <div className={'score-wrapper'}>
-                {error ? (
-                    <span className={'score error'}>{error}</span>
-                ) : (
-                    <span className={isEditing ? 'score editing' : (num >= maxValue ? 'score max' : 'score')}>
-                        {isEditing ? 'Enter values and press «Set»' : num}
-                    </span>
-                )}
+                <span className={num >= maxValue ? 'score max' : 'score'}>
+                    {num}
+                </span>
             </div>
 
             <div className={'btn-wrapper v2'}>

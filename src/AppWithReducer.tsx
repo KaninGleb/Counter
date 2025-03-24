@@ -11,7 +11,6 @@ export function AppWithReducer() {
     }
 
     const [values, setValues] = useState(localStorageValues);
-    const [isEditing, setIsEditing] = useState(false);
     const [error, setError] = useState<string>('');
     const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
@@ -29,7 +28,6 @@ export function AppWithReducer() {
                     startValue={values.startValue}
                     maxValue={values.maxValue}
                     onSetValues={setValuesHandler}
-                    onEdit={setIsEditing}
                     onError={setError}
                     error={error}
                 />
@@ -37,7 +35,6 @@ export function AppWithReducer() {
                 <CounterV2
                     startValue={values.startValue}
                     maxValue={values.maxValue}
-                    isEditing={isEditing}
                     error={error}
                     setIsSettingsOpen={setIsSettingsOpen}
                 />
