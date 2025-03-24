@@ -1,0 +1,85 @@
+.blockWrapper {
+    display: flex;
+    flex-direction: column;
+    outline: 3px solid turquoise;
+    gap: 18px;
+    padding: 16px;
+    border-radius: 10px;
+    width: 340px;
+}
+
+.scoreWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: 2px solid turquoise;
+    border-radius: 10px;
+    padding: 16px;
+    min-height: 144px;
+    height: 100%;
+}
+
+.score {
+    font-size: 40px;
+    font-weight: 700;
+    color: turquoise;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+
+.score.max {
+    color: indianred;
+}
+
+.score.editing {
+    font-size: 20px;
+    white-space: pre-wrap;
+}
+
+.score.error {
+    font-size: 20px;
+    font-weight: 700;
+    color: indianred;
+    white-space: pre-wrap;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: 700;
+    color: turquoise;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    white-space: nowrap;
+}
+
+.inputsWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 32px;
+    outline: 2px solid turquoise;
+    border-radius: 10px;
+    padding: 16px;
+}
+
+.input {
+    text-align: center;
+    border: none;
+    outline: 4px solid turquoise;
+    border-radius: 5px;
+    padding: 10px;
+    color: #292c35;
+    font-weight: 700;
+    font-size: 18px;
+    max-width: 150px;
+    max-height: 40px;
+}
+
+.input.error {
+    outline: 4px solid red;
+    background-color: indianred;
+}

@@ -1,5 +1,7 @@
 import {useEffect, useState} from 'react';
-import {Button} from './Button.tsx';
+import {Button} from '../Button/Button.tsx';
+import s from './Counter.module.css';
+import btn from '../Button/Button.module.css';
 
 type CounterType = {
     startValue: number
@@ -22,27 +24,27 @@ export const Counter = ( {startValue, maxValue, isEditing, error}: CounterType )
     const isResetDisabled = !!error || isEditing;
 
     return (
-        <div className={'block-wrapper'}>
-            <div className={'score-wrapper'}>
+        <div className={s.blockWrapper}>
+            <div className={s.scoreWrapper}>
                 {error ? (
-                    <span className={'score error'}>{error}</span>
+                    <span className={`${s.score} ${s.error}`}>{error}</span>
                 ) : (
-                    <span className={isEditing ? 'score editing' : (num >= maxValue ? 'score max' : 'score')}>
+                    <span className={`${s.score} ${isEditing ? s.editing : (num >= maxValue ? s.max : '')}`}>
                         {isEditing ? 'Enter values and press «Set»' : num}
                     </span>
                 )}
             </div>
 
-            <div className={'btn-wrapper'}>
+            <div className={btn.btnWrapper}>
                 <Button
                     title={'Inc'}
-                    className={isIncDisabled ? 'disabled' : ''}
+                    className={isIncDisabled ? btn.disabledButton : ''}
                     disabled={isIncDisabled}
                     onClick={incrementHandler}
                 />
                 <Button
                     title={'Reset'}
-                    className={isResetDisabled ? 'disabled' : ''}
+                    className={isResetDisabled ? btn.disabledButton : ''}
                     disabled={isResetDisabled}
                     onClick={resetHandler}
                 />

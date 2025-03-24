@@ -1,6 +1,9 @@
 import {useEffect, useState} from 'react';
-import {Button} from './Button.tsx';
-import checkIcon from '../assets/images/check.svg'
+import {Button} from '../Button/Button.tsx';
+import checkIcon from '../../assets/images/check.svg'
+import s from './Counter.module.css'
+import btn from '../Button/Button.module.css'
+
 
 type CounterSettingsType = {
     startValue: number
@@ -44,22 +47,22 @@ export const CounterSettings = ({startValue, maxValue, onSetValues, onEdit, onEr
     }
 
     return (
-        <div className={'block-wrapper'}>
-            <div className={'inputs-wrapper'}>
-                <label className={'title'}>
+        <div className={s.blockWrapper}>
+            <div className={s.inputsWrapper}>
+                <label className={s.title}>
                     Max value:
                     <input
-                        className={localMaxValue < 0 || localStartVal >= localMaxValue ? 'input error' : 'input'}
+                        className={`${s.input} ${localMaxValue < 0 || localStartVal >= localMaxValue ? s.error : ''}`}
                         type="number"
                         value={localMaxValue}
                         onChange={(e) => setLocalMaxValue(+e.currentTarget.value)}
                     />
                 </label>
 
-                <label className={'title'}>
+                <label className={s.title}>
                     Start value:
                     <input
-                        className={localStartVal < 0 ? 'input error' : 'input'}
+                        className={`${s.input} ${localStartVal < 0 ? s.error : ''}`}
                         type="number"
                         value={localStartVal}
                         onChange={(e) => setLocalStartValue(+e.currentTarget.value)}
@@ -67,14 +70,14 @@ export const CounterSettings = ({startValue, maxValue, onSetValues, onEdit, onEr
                 </label>
             </div>
 
-            <div className={'btn-wrapper'}>
+            <div className={btn.btnWrapper}>
                 <Button
                     onClick={setValuesHandler}
                     disabled={!!error || isDisabled}
-                    className={error || isDisabled ? 'disabled' : ''}
+                    className={error || isDisabled ? btn.disabledButton : ''}
                 >
                     {isButtonClicked ? (
-                        <img className={'check-icon'} src={checkIcon} alt="Checked" width="24" height="24"/>
+                        <img className={btn.checkIcon} src={checkIcon} alt="Checked" width="24" height="24"/>
                     ) : (
                         'Set'
                     )}

@@ -1,6 +1,8 @@
 import {useReducer} from 'react';
-import {Button} from './Button.tsx';
-import {counterReducer} from '../store/counterReducer.tsx';
+import {Button} from '../Button/Button.tsx';
+import {counterReducer} from '../../store/counterReducer.tsx';
+import s from './Counter.module.css';
+import btn from '../Button/Button.module.css';
 
 type CounterType = {
     startValue: number
@@ -25,29 +27,29 @@ export const CounterV2 = ( {startValue, maxValue, error, setIsSettingsOpen}: Cou
     const isResetDisabled = !!error;
 
     return (
-        <div className={'block-wrapper'}>
-            <div className={'score-wrapper'}>
-                <span className={num >= maxValue ? 'score max' : 'score'}>
+        <div className={s.blockWrapper}>
+            <div className={s.scoreWrapper}>
+                <span className={`${s.score} ${num >= maxValue ? s.max : ''}`}>
                     {num}
                 </span>
             </div>
 
-            <div className={'btn-wrapper v2'}>
+            <div className={`${btn.btnWrapper} ${btn.v2}`}>
                 <Button
                     title={'Inc'}
-                    className={isIncDisabled ? 'disabled' : ''}
+                    className={isIncDisabled ? btn.disabledButton : ''}
                     disabled={isIncDisabled}
                     onClick={incrementHandler}
                 />
                 <Button
                     title={'Reset'}
-                    className={isResetDisabled ? 'disabled' : ''}
+                    // className={isResetDisabled ? btn.disabledButton : ''}
                     disabled={isResetDisabled}
                     onClick={resetHandler}
                 />
                 <Button
                     title={'Set'}
-                    className={isResetDisabled ? 'disabled' : ''}
+                    // className={isResetDisabled ? btn.disabledButton : ''}
                     disabled={isResetDisabled}
                     onClick={setHandler}
                 />
