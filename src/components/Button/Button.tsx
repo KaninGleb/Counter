@@ -1,4 +1,5 @@
 import React from 'react';
+import btn from './Button.module.css';
 
 type ButtonType = {
     title?: string | null
@@ -10,7 +11,7 @@ type ButtonType = {
 }
 
 export const Button = ({className, title, disabled, onClick, type, children}: ButtonType) => {
-    const btnClass = type === 'version-active' ? 'button active' : 'button';
+    const btnClass = type === 'version-active' ? `${btn.button} ${btn.active}` : btn.button;
 
     return (
         <button

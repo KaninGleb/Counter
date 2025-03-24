@@ -1,0 +1,58 @@
+.btnWrapper {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 12px;
+    outline: 2px solid turquoise;
+    border-radius: 10px;
+}
+
+.button {
+    border: none;
+    border-radius: 5px;
+    background-color: turquoise;
+    padding: 5px 20px;
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: 700;
+    color: #292c35;
+    transition: 0.2s;
+    min-width: 80px;
+}
+
+.button:hover {
+    scale: 1.05;
+}
+
+.button:active {
+    background-color: #00ffe9;
+}
+
+.active {
+    background-color: #292c35;
+    border: 4px solid turquoise;
+    padding: 5px 16px;
+    color: turquoise;
+}
+
+.button.active:hover {
+    background-color: inherit;
+    cursor: default;
+    scale: 1;
+}
+
+.disabledButton {
+    background-color: #4e7570;
+}
+
+.disabledButton:active {
+    background-color: #4e7570;
+}
+
+.btnWrapper.v2 {
+    gap: 10px;
+}
+
+.checkIcon {
+    vertical-align: text-bottom;
+}
