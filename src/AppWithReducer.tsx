@@ -1,6 +1,6 @@
 import {useState} from 'react';
-import {CounterV2} from './components/CounterV2.tsx';
-import {CounterSettings} from './components/CounterSettings.tsx';
+import {CounterV2} from './components/Counter/CounterV2.tsx';
+import {CounterSettings} from './components/Counter/CounterSettings.tsx';
 import {initialValues} from './data/initialValues.ts';
 
 
@@ -22,7 +22,7 @@ export function AppWithReducer() {
     }
 
     return (
-        <div className="App">
+        <>
             {isSettingsOpen ? (
                 <CounterSettings
                     startValue={values.startValue}
@@ -39,6 +39,6 @@ export function AppWithReducer() {
                     setIsSettingsOpen={setIsSettingsOpen}
                 />
             )}
-        </div>
+        </>
     )
 }

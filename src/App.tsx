@@ -1,7 +1,9 @@
 import {useState} from 'react';
 import {AppWithState} from './AppWithState.tsx';
 import {AppWithReducer} from './AppWithReducer.tsx';
-import {VersionSwitcher} from './components/VersionSwitcher.tsx';
+import {VersionSwitcher} from './components/VersionSwitcher/VersionSwitcher.tsx';
+import s from './styles/global.module.css';
+import v from './components/VersionSwitcher/VersionSwitcher.module.css';
 
 
 export type Version = 'v1' | 'v2';
@@ -20,13 +22,13 @@ function App() {
     }
 
     const versionTitle: Record<Version, string> = {
-        v1: 'Version 1',
-        v2: 'Version 2',
+        v1: 'Version 1 - With useState',
+        v2: 'Version 2 - With useReducer',
     }
 
     return (
-        <div className="App">
-            <div style={{textAlign: 'center', marginBottom: '2rem'}}>
+        <div className={s.App}>
+            <div className={v.versionTitle}>
                 {versionTitle[version]}
             </div>
             {version === 'v1' ? (

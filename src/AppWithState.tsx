@@ -1,7 +1,8 @@
 import {useState} from 'react';
-import {CounterSettings} from './components/CounterSettings.tsx';
-import {Counter} from './components/Counter.tsx';
+import {CounterSettings} from './components/Counter/CounterSettings.tsx';
+import {Counter} from './components/Counter/Counter.tsx';
 import {initialValues} from './data/initialValues.ts';
+import s from './styles/global.module.css'
 
 
 export function AppWithState() {
@@ -21,7 +22,7 @@ export function AppWithState() {
     }
 
     return (
-        <div className={'container'}>
+        <div className={s.container}>
             <CounterSettings
                 startValue={values.startValue}
                 maxValue={values.maxValue}
