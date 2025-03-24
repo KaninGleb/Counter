@@ -2,6 +2,7 @@ import {useState} from 'react';
 import {AppWithState} from './AppWithState.tsx';
 import {AppWithReducer} from './AppWithReducer.tsx';
 import {VersionSwitcher} from './components/VersionSwitcher/VersionSwitcher.tsx';
+import {versionTitle} from './data/versionTitle.ts';
 import s from './styles/global.module.css';
 import v from './components/VersionSwitcher/VersionSwitcher.module.css';
 
@@ -19,11 +20,6 @@ function App() {
     const handleVersionChange = (newVersion: Version) => {
         setVersion(newVersion);
         localStorage.setItem('counterVersion', newVersion);
-    }
-
-    const versionTitle: Record<Version, string> = {
-        v1: 'Version 1 - With useState',
-        v2: 'Version 2 - With useReducer',
     }
 
     return (
