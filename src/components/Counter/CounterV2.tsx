@@ -1,6 +1,6 @@
 import {useReducer} from 'react';
 import {Button} from '../Button/Button.tsx';
-import {counterReducer} from '../../store/counterReducer.tsx';
+import {counterV2Reducer, IncrementCounterV2AC, ResetCounterV2AC} from '../../store/counterV2Reducer.ts';
 import s from './Counter.module.css';
 import btn from '../Button/Button.module.css';
 
@@ -12,10 +12,12 @@ type CounterType = {
 }
 
 export const CounterV2 = ( {startValue, maxValue, error, setIsSettingsOpen}: CounterType ) => {
-    const [num, dispatchNum] = useReducer(counterReducer, startValue);
+    const [num, dispatchNum] = useReducer(counterV2Reducer, startValue);
 
-    const incrementHandler = () => dispatchNum({ type: 'INCREMENT' });
-    const resetHandler = () => dispatchNum( {type: 'RESET'} );
+    const incrementHandler = () => dispatchNum(IncrementCounterV2AC());
+    // const incrementHandler = () => dispatchNum({ type: 'INCREMENT' });
+    const resetHandler = () => dispatchNum(ResetCounterV2AC(startValue));
+    // const resetHandler = () => dispatchNum({ type: 'RESET', startValue });
 
     const setHandler = () => {
         if (setIsSettingsOpen) {
