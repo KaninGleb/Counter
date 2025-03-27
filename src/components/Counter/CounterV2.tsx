@@ -15,9 +15,7 @@ export const CounterV2 = ( {startValue, maxValue, error, setIsSettingsOpen}: Cou
     const [num, dispatchNum] = useReducer(counterV2Reducer, startValue);
 
     const incrementHandler = () => dispatchNum(IncrementCounterV2AC());
-    // const incrementHandler = () => dispatchNum({ type: 'INCREMENT' });
     const resetHandler = () => dispatchNum(ResetCounterV2AC(startValue));
-    // const resetHandler = () => dispatchNum({ type: 'RESET', startValue });
 
     const setHandler = () => {
         if (setIsSettingsOpen) {
@@ -45,13 +43,11 @@ export const CounterV2 = ( {startValue, maxValue, error, setIsSettingsOpen}: Cou
                 />
                 <Button
                     title={'Reset'}
-                    // className={isResetDisabled ? btn.disabledButton : ''}
                     disabled={isResetDisabled}
                     onClick={resetHandler}
                 />
                 <Button
                     title={'Set'}
-                    // className={isResetDisabled ? btn.disabledButton : ''}
                     disabled={isResetDisabled}
                     onClick={setHandler}
                 />
