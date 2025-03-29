@@ -1,8 +1,9 @@
-import {useReducer} from 'react';
+import {useEffect, useReducer} from 'react';
 import {Button} from '../Button/Button.tsx';
 import {counterV2Reducer, IncrementCounterV2AC, ResetCounterV2AC} from '../../store/counterV2Reducer.ts';
 import s from './Counter.module.css';
 import btn from '../Button/Button.module.css';
+
 
 type CounterType = {
     startValue: number
@@ -12,7 +13,12 @@ type CounterType = {
 }
 
 export const CounterV2 = ( {startValue, maxValue, error, setIsSettingsOpen}: CounterType ) => {
-    const [num, dispatchNum] = useReducer(counterV2Reducer, startValue);
+    const localCurrentValue = () => {
+        const savedValue = localStorage.getItem('currentValue');
+        return savedValue !== null ? JSON.parse(savedValue) : startValue;
+    }
+
+    const [num, dispatchNum] = useReducer(counterV2Reducer, localCurrentValue());
 
     const incrementHandler = () => dispatchNum(IncrementCounterV2AC());
     const resetHandler = () => dispatchNum(ResetCounterV2AC(startValue));
@@ -22,6 +28,10 @@ export const CounterV2 = ( {startValue, maxValue, error, setIsSettingsOpen}: Cou
             setIsSettingsOpen(true);
         }
     }
+
+    useEffect(() => {
+        localStorage.setItem('currentValue', JSON.stringify(num));
+    }, [num]);
 
     const isIncDisabled = !!error  || num >= maxValue;
     const isResetDisabled = !!error;
