@@ -1,9 +1,9 @@
 import {useEffect} from 'react';
-import {useDispatch} from 'react-redux';
-import {incrementCounterV3AC, resetCounterV3AC} from '@/features/model/counterV3Reducer.ts';
-import {Button} from '@/common/components/Button/Button.tsx';
 import {useCounterV3Selector} from '@/app/hooks/useCounterV3Selector.ts';
 import {selectCounterV3} from '@/features/model/counterV3-selectors.ts';
+import {useCounterV3Dispatch} from '@/app/hooks/useCounterV3Dispatch.ts';
+import {incrementCounterV3AC, resetCounterV3AC} from '@/features/model/counterV3Reducer.ts';
+import {Button} from '@/common/components/Button/Button.tsx';
 import s from '@/common/styles/Counter.module.css';
 import btn from '@/common/styles/Button.module.css';
 
@@ -22,7 +22,7 @@ export const CounterV3 = ({ startValue, maxValue, error, setIsSettingsOpen }: Co
   }
 
   const count = useCounterV3Selector(selectCounterV3);
-  const dispatch = useDispatch();
+  const dispatch = useCounterV3Dispatch();
 
   const incrementHandler = () => dispatch(incrementCounterV3AC());
   const resetHandler = () => dispatch(resetCounterV3AC({ startValue }));
