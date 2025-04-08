@@ -4,7 +4,7 @@ import {AppWithReducer} from '../features/ui/AppWithReducer/AppWithReducer.tsx';
 import {VersionSwitcher} from '../common/components/VersionSwitcher/VersionSwitcher.tsx';
 import {versionTitle} from '../common/data/versionTitle.ts';
 import s from './global.module.css'
-import v from './../common/styles/VersionSwitcher.module.css';
+import v from '@/common/styles/VersionSwitcher.module.css';
 
 
 export type Version = 'v1' | 'v2';

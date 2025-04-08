@@ -1,4 +1,5 @@
-import {initialValues, initialValuesType} from '../../common/data/initialValues.ts';
+import {initialValues, initialValuesType} from '@/common/data/initialValues.ts';
+
 
 type IncrementCounterV2AT = ReturnType<typeof IncrementCounterV2AC>;
 type ResetCounter2AT = ReturnType<typeof ResetCounterV2AC>;
@@ -24,7 +25,6 @@ export const counterV2Reducer = (state = initialState.startValue, action: Action
 
 export const IncrementCounterV2AC = () => ({
   type: 'INCREMENT',
-
 } as const);
 
 export const ResetCounterV2AC = (startValue: number) => ({

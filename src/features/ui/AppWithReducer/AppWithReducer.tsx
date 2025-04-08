@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import {CounterV2} from './CounterV2/CounterV2.tsx';
 import {CounterSettings} from '../CounterSettings/CounterSettings.tsx';
-import {initialValues} from '../../../common/data/initialValues.ts';
+import {initialValues} from '@/common/data/initialValues.ts';
 
 
 export function AppWithReducer() {

@@ -1,25 +1,25 @@
 import {Button} from '../Button/Button.tsx';
-import {Version} from '../../../app/App.tsx';
+import {Version} from '@/app/App.tsx';
 import s from '../../styles/VersionSwitcher.module.css';
 
 type VersionSwitcherType = {
-    currentVersion: Version
-    onVersionChange: (version: Version) => void
+  currentVersion: Version
+  onVersionChange: (version: Version) => void
 }
 
-export const VersionSwitcher = ({currentVersion, onVersionChange}: VersionSwitcherType) => {
-    return (
-        <div className={s.versionWrapper}>
-            <Button
-                title={'V1'}
-                type={currentVersion === 'v1' ? 'version-active' : 'primary'}
-                onClick={() => onVersionChange('v1')}
-            />
-            <Button
-                title={'V2'}
-                type={currentVersion === 'v2' ? 'version-active' : 'primary'}
-                onClick={() => onVersionChange('v2')}
-            />
-        </div>
-    )
+export const VersionSwitcher = ({ currentVersion, onVersionChange }: VersionSwitcherType) => {
+  return (
+    <div className={s.versionWrapper}>
+      <Button
+        title={'V1'}
+        type={currentVersion === 'v1' ? 'version-active' : 'primary'}
+        onClick={() => onVersionChange('v1')}
+      />
+      <Button
+        title={'V2'}
+        type={currentVersion === 'v2' ? 'version-active' : 'primary'}
+        onClick={() => onVersionChange('v2')}
+      />
+    </div>
+  )
 }

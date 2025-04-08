@@ -1,8 +1,8 @@
 import {useState} from 'react';
 import {CounterSettings} from '../CounterSettings/CounterSettings.tsx';
 import {Counter} from './CounterV1/Counter.tsx';
-import {initialValues} from '../../../common/data/initialValues.ts';
-import s from '../../../app/global.module.css'
+import {initialValues} from '@/common/data/initialValues.ts';
+import s from '@/app/global.module.css'
 
 
 export function AppWithState() {
