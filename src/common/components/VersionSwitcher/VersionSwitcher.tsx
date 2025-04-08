@@ -1,6 +1,6 @@
 import {Button} from '../Button/Button.tsx';
-import {Version} from '../../App.tsx';
-import s from './VersionSwitcher.module.css';
+import {Version} from '../../../app/App.tsx';
+import s from '../../styles/VersionSwitcher.module.css';
 
 type VersionSwitcherType = {
     currentVersion: Version

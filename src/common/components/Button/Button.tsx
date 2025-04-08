@@ -1,5 +1,5 @@
 import React from 'react';
-import btn from './Button.module.css';
+import btn from '../../styles/Button.module.css';
 
 type ButtonType = {
     title?: string | null

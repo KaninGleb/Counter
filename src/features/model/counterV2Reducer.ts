@@ -1,4 +1,4 @@
-import {initialValues, initialValuesType} from '../data/initialValues.ts';
+import {initialValues, initialValuesType} from '../../common/data/initialValues.ts';
 
 type IncrementCounterV2AT = ReturnType<typeof IncrementCounterV2AC>;
 type ResetCounter2AT = ReturnType<typeof ResetCounterV2AC>;

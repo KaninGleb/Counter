@@ -1,10 +1,10 @@
 
 export type initialValuesType = {
-    startValue: number
-    maxValue: number
+  startValue: number
+  maxValue: number
 }
 
 export const initialValues: initialValuesType = {
-    startValue: 0,
-    maxValue: 3,
+  startValue: 0,
+  maxValue: 3,
 }

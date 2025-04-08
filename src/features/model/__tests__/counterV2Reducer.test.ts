@@ -1,5 +1,5 @@
 import {beforeEach, expect, test} from 'vitest';
-import {ActionType, counterV2Reducer, IncrementCounterV2AC, ResetCounterV2AC} from './counterV2Reducer.ts';
+import {ActionType, counterV2Reducer, IncrementCounterV2AC, ResetCounterV2AC} from '../counterV2Reducer.ts';
 
 let initialState: number;
 
