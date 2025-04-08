@@ -9,9 +9,9 @@ import {AppWithRedux} from '@/features/ui/AppWithRedux/AppWithRedux.tsx';
 
 
 function App() {
-  const localStorageVersion = () => {
+  const localStorageVersion = (): VersionType => {
     const savedValues = localStorage.getItem('counterVersion');
-    return savedValues === 'v2' ? savedValues : 'v1';
+    return savedValues as VersionType || 'v1';
   }
 
   const [version, setVersion] = useState<VersionType>(localStorageVersion);
