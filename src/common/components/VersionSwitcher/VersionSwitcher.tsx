@@ -10,23 +10,18 @@ type VersionSwitcherType = {
 }
 
 export const VersionSwitcher = ({ currentVersion, onVersionChange }: VersionSwitcherType) => {
+  const versions: VersionType[] = ['v1', 'v2', 'v3'];
+
   return (
     <div className={s.versionWrapper}>
-      <Button
-        title={'V1'}
-        type={currentVersion === 'v1' ? 'version-active' : 'primary'}
-        onClick={() => onVersionChange('v1')}
-      />
-      <Button
-        title={'V2'}
-        type={currentVersion === 'v2' ? 'version-active' : 'primary'}
-        onClick={() => onVersionChange('v2')}
-      />
-      <Button
-        title={'V3'}
-        type={currentVersion === 'v3' ? 'version-active' : 'primary'}
-        onClick={() => onVersionChange('v3')}
-      />
+      {versions.map(v => (
+        <Button
+          key={v}
+          title={v.toUpperCase()}
+          type={currentVersion === v ? 'version-active' : 'primary'}
+          onClick={() => onVersionChange(v)}
+        />
+      ))}
     </div>
   )
 }
