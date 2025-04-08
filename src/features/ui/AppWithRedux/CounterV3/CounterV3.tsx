@@ -16,10 +16,10 @@ type CounterType = {
 }
 
 export const CounterV3 = ({ startValue, maxValue, error, setIsSettingsOpen }: CounterType) => {
-  const localCurrentValue = () => {
-    const savedValue = localStorage.getItem('currentValue');
-    return savedValue !== null ? JSON.parse(savedValue) : startValue;
-  }
+  // const localCurrentValue = () => {
+  //   const savedValue = localStorage.getItem('currentValue');
+  //   return savedValue !== null ? JSON.parse(savedValue) : startValue;
+  // }
 
   const count = useCounterV3Selector(selectCounterV3);
   const dispatch = useCounterV3Dispatch();
