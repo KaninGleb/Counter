@@ -38,9 +38,9 @@ export const CounterV2 = ({ startValue, maxValue, error, setIsSettingsOpen }: Co
   return (
     <div className={s.blockWrapper}>
       <div className={s.scoreWrapper}>
-                <span className={`${s.score} ${num >= maxValue ? s.max : ''}`}>
-                    {num}
-                </span>
+        <span className={`${s.score} ${num >= maxValue ? s.max : ''}`}>
+          {num}
+        </span>
       </div>
 
       <div className={`${btn.btnWrapper} ${btn.v2}`}>

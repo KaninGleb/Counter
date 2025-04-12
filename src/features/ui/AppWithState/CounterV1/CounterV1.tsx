@@ -30,8 +30,8 @@ export const CounterV1 = ({ startValue, maxValue, isEditing, error }: CounterTyp
           <span className={`${s.score} ${s.error}`}>{error}</span>
         ) : (
           <span className={`${s.score} ${isEditing ? s.editing : (num >= maxValue ? s.max : '')}`}>
-                        {isEditing ? 'Enter values and press «Set»' : num}
-                    </span>
+            {isEditing ? 'Enter values and press «Set»' : num}
+          </span>
         )}
       </div>
 
