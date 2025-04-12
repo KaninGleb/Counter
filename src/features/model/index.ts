@@ -5,3 +5,5 @@ export {ResetCounterV2AC} from './counterV2Reducer'
 export {counterV3Reducer} from './counterV3Reducer.ts'
 export {incrementCounterV3AC} from './counterV3Reducer.ts'
 export {resetCounterV3AC} from './counterV3Reducer.ts'
+
+export {selectCounterV3} from './counterV3-selectors.ts'
