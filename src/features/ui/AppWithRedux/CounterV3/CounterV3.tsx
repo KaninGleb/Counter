@@ -1,6 +1,6 @@
 import {useCounterV3Dispatch, useCounterV3Selector} from '@/app/hooks';
 import {selectCounterV3} from '@/features/model/counterV3-selectors.ts';
-import {incrementCounterV3AC, resetCounterV3AC} from '@/features/model/counterV3Reducer.ts';
+import {incrementCounterV3AC, resetCounterV3AC} from '@/features/model';
 import {Button} from '@/common/components/Button/Button.tsx';
 import s from '@/common/styles/Counter.module.css';
 import btn from '@/common/styles/Button.module.css';

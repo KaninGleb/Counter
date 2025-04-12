@@ -1,5 +1,5 @@
 import {combineReducers, configureStore} from '@reduxjs/toolkit'
-import {counterV3Reducer} from '@/features/model/counterV3Reducer.ts';
+import {counterV3Reducer} from '@/features/model';
 import {loadState, saveState} from '@/app/localStorage.ts';
 
 
