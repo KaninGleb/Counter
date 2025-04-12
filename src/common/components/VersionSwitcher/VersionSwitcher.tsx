@@ -1,5 +1,5 @@
 import {Button} from '../Button/Button.tsx';
-import s from '../../styles/VersionSwitcher.module.css';
+import {vs} from '@/common/styles';
 
 
 export type VersionType = 'v1' | 'v2' | 'v3';
@@ -13,7 +13,7 @@ export const VersionSwitcher = ({ currentVersion, onVersionChange }: VersionSwit
   const versions: VersionType[] = ['v1', 'v2', 'v3'];
 
   return (
-    <div className={s.versionWrapper}>
+    <div className={vs.versionWrapper}>
       {versions.map(v => (
         <Button
           key={v}

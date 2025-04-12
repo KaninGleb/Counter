@@ -1,8 +1,7 @@
 import {useCounterV3Dispatch, useCounterV3Selector} from '@/app/hooks';
 import {incrementCounterV3AC, resetCounterV3AC, selectCounterV3} from '@/features/model';
 import {Button} from '@/common/components';
-import s from '@/common/styles/Counter.module.css';
-import btn from '@/common/styles/Button.module.css';
+import {s, btn} from '@/common/styles';
 
 
 type CounterType = {
