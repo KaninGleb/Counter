@@ -3,7 +3,7 @@ import {AppWithState} from '../features/ui/AppWithState/AppWithState.tsx';
 import {AppWithReducer} from '../features/ui/AppWithReducer/AppWithReducer.tsx';
 import {AppWithRedux} from '@/features/ui/AppWithRedux/AppWithRedux.tsx';
 import {versionTitle} from '../common/data/versionTitle.ts';
-import {VersionType} from '@/common/components/VersionSwitcher/VersionSwitcher.tsx';
+import {VersionType} from '@/common/components/VersionSwitcher';
 import {VersionSwitcher} from '@/common/components/index.ts'
 import s from './global.module.css'
 import v from '@/common/styles/VersionSwitcher.module.css';
