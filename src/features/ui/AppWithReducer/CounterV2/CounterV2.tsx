@@ -1,8 +1,7 @@
 import {useEffect, useReducer} from 'react';
 import {counterV2Reducer, IncrementCounterV2AC, ResetCounterV2AC} from '@/features/model';
 import {Button} from '@/common/components';
-import s from '@/common/styles/Counter.module.css';
-import btn from '@/common/styles/Button.module.css';
+import {s, btn} from '@/common/styles';
 
 
 type CounterType = {

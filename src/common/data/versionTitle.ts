@@ -1,4 +1,4 @@
-import {VersionType} from '@/common/components/VersionSwitcher/VersionSwitcher.tsx';
+import {VersionType} from '@/common/components';
 
 
 export const versionTitle: Record<VersionType, string> = {

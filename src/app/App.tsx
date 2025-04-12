@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import {AppWithState, AppWithReducer, AppWithRedux} from '@/features/ui';
+import {VersionType, VersionSwitcher} from '@/common/components/index.ts';
 import {versionTitle} from '../common/data/versionTitle.ts';
-import {VersionType, VersionSwitcher} from '@/common/components/index.ts'
 import s from './global.module.css'
 import {vs} from '@/common/styles';
 
