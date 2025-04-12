@@ -1,4 +1,3 @@
-import {useEffect} from 'react';
 import {useCounterV3Selector} from '@/app/hooks/useCounterV3Selector.ts';
 import {selectCounterV3} from '@/features/model/counterV3-selectors.ts';
 import {useCounterV3Dispatch} from '@/app/hooks/useCounterV3Dispatch.ts';
@@ -16,11 +15,6 @@ type CounterType = {
 }
 
 export const CounterV3 = ({ startValue, maxValue, error, setIsSettingsOpen }: CounterType) => {
-  // const localCurrentValue = () => {
-  //   const savedValue = localStorage.getItem('currentValue');
-  //   return savedValue !== null ? JSON.parse(savedValue) : startValue;
-  // }
-
   const count = useCounterV3Selector(selectCounterV3);
   const dispatch = useCounterV3Dispatch();
 
@@ -32,10 +26,6 @@ export const CounterV3 = ({ startValue, maxValue, error, setIsSettingsOpen }: Co
       setIsSettingsOpen(true);
     }
   }
-
-  useEffect(() => {
-    localStorage.setItem('currentValue', JSON.stringify(count));
-  }, [count]);
 
   const isIncDisabled = !!error || count >= maxValue;
   const isResetDisabled = !!error;
