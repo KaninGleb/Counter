@@ -1,6 +1,5 @@
 import {useState} from 'react';
-import {CounterV2} from './CounterV2/CounterV2.tsx';
-import {CounterSettings} from '../CounterSettings/CounterSettings.tsx';
+import {CounterSettings, CounterV2} from '@/features/ui';
 import {initialValues} from '@/common/data/initialValues.ts';
 
 

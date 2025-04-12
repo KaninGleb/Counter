@@ -1,7 +1,6 @@
 import {useState} from 'react';
-import {CounterSettings} from '../CounterSettings/CounterSettings.tsx';
+import {CounterSettings, CounterV3} from '@/features/ui';
 import {initialValues} from '@/common/data/initialValues.ts';
-import {CounterV3} from './CounterV3/CounterV3.tsx';
 
 
 export function AppWithRedux() {
