@@ -10,7 +10,7 @@ type CounterType = {
   error: string
 }
 
-export const Counter = ({ startValue, maxValue, isEditing, error }: CounterType) => {
+export const CounterV1 = ({ startValue, maxValue, isEditing, error }: CounterType) => {
   const [num, setNum] = useState(startValue);
 
   useEffect(() => {

@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import {CounterSettings} from '../CounterSettings/CounterSettings.tsx';
-import {Counter} from './CounterV1/Counter.tsx';
+import {CounterV1} from './CounterV1/CounterV1.tsx';
 import {initialValues} from '@/common/data/initialValues.ts';
 import s from '@/app/global.module.css'
 
@@ -31,7 +31,7 @@ export function AppWithState() {
         onError={setError}
         error={error}
       />
-      <Counter
+      <CounterV1
         startValue={values.startValue}
         maxValue={values.maxValue}
         isEditing={isEditing}
