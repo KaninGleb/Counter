@@ -13,7 +13,7 @@ export const VersionSwitcher = ({ currentVersion, onVersionChange }: VersionSwit
   const versions: VersionType[] = ['v1', 'v2', 'v3'];
 
   return (
-    <div className={`${vs.versionWrapper} ${currentVersion === 'v1' && vs.mediaVersionWrapper}`}>
+    <div className={vs.versionWrapper}>
       {versions.map(v => (
         <Button
           key={v}

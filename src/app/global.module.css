@@ -12,11 +12,6 @@ body {
     -moz-osx-font-smoothing: grayscale;
 
     background-color: #292c35;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
 }
 
 code {
@@ -25,17 +20,31 @@ code {
 }
 
 .App {
-    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 .container {
+    position: relative;
+
     display: flex;
     gap: 40px;
 }
 
 @media screen and (max-width: 800px) {
+    body {
+    }
+
     .App {
         scale: 0.8;
+    }
+
+    .AppMedia {
+        justify-content: flex-start
     }
 
     .container {

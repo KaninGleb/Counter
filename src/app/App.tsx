@@ -20,10 +20,11 @@ function App() {
   }
 
   return (
-    <div className={s.App}>
+    <div className={`${s.App} ${version === 'v1' && s.AppMedia}`}>
       <div className={vs.versionTitle}>
         {versionTitle[version]}
       </div>
+      <div style={{ position: 'relative' }}>
       {version === 'v1' ? (
         <AppWithState/>
       ) : version === 'v2' ? (
@@ -32,6 +33,7 @@ function App() {
         <AppWithRedux/>
       )}
       <VersionSwitcher currentVersion={version} onVersionChange={handleVersionChange}/>
+      </div>
     </div>
   )
 }

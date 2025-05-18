@@ -83,3 +83,9 @@
     outline: 4px solid red;
     background-color: indianred;
 }
+
+@media screen and (max-width: 800px) {
+    .input {
+        width: 140px;
+    }
+}
