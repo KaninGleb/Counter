@@ -32,3 +32,13 @@ code {
     display: flex;
     gap: 40px;
 }
+
+@media screen and (max-width: 800px) {
+    .App {
+        scale: 0.8;
+    }
+
+    .container {
+        flex-direction: column;
+    }
+}
